@@ -77,8 +77,12 @@ def generate_summary(data, top_n=5):
 
     return summarize_text
 
+
+@app.route('/')
+def hello():
+    return "Hello Visitor! Use the API to generate summary."
 @app.route('/generate/<data>')
-def hello(data):
+def summary(data):
     result = generate_summary(data, 2)
     ans = ". ".join(result)
     return ans
